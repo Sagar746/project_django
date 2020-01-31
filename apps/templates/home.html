@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-2">
+	{% if request.user %}
+	<p>Welcome {{request.user}}</p>
+	{% endif %}
+	<div class="row">	
+		<div class="col-md-6 col-sm-12">
+			<div class="card">
+				<div class="card-header">
+							
+					<a class="btn btn-info" href="{% url 'app:add_book' %}">Add New Book </a>
+
+
+	<h1>This is Home Page!</h1>
+		<p>Name:{{ name }} </p><br>
+		<p>Age:{{ age }} </p><br>
+		<p>Address:{{ address }} </p>
+
+	<h1>Book List</h1>
+	<ul>
+	{% for book in booklist %}    
+		<li> Name: {{ book.name }}</li>
+		<li> Isbn: {{book.isbn}}</li>
+		<li> Price: {{book.price}}</li>
+		<li> Date: {{book.created}}</li>
+		<li> Modified: {{book.modified}}</li>
+		<li><a href="{% url 'app:edit_book' book.id %}">Edit</a></li>
+	{% endfor %}	
+	</ul>	
+						</div>
+					</div>
+				</div>
+
+
+<div class="col-md-6 col-sm-12">
+	<div class="card">
+		<div class="card-header">
+					
+	<a class="btn btn-info" href="{% url 'app:add_publication' %}">Add Publication </a>
+
+
+	<h1>This is Home Page!</h1>
+		<p>Name:{{ name }} </p><br>
+		<p>Age:{{ age }} </p><br>
+		<p>Address:{{ address }} </p>
+
+	<h1>Publication List</h1>
+	<ul>
+	{% for pub in publist %}    
+		<li> Name: {{ pub.name }}</li>
+		<li> Address: {{pub.address}}</li>
+		<li> Contact: {{pub.contact}}</li>
+		
+		<li><a href="{% url 'app:edit_publication' pub.id %}">Edit</a></li>
+	{% endfor %}	
+	</ul>	
+				</div>
+		</div>	
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+{% endblock %}

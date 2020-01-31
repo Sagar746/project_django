@@ -1,0 +1,15 @@
+	<!-- <p>Add new Publication</p>
+<form method="POST">{% csrf_token %}
+	<input type="text" name="name">
+	<input type="text" name="contact">
+	<input type="text" name="address"> 
+	<input type="submit" name="submit" value="Submit">
+</form> -->
+
+
+
+<h1>Add new {{model_name}}</h1>
+<form method="POST">{% csrf_token %}
+	{{ form.as_p }} 
+	<input type="submit" name="submit" value="Submit">
+</form>
